@@ -705,11 +705,18 @@ body {
     color: #555;
 }
 
+
 .contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.13);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border: 1.5px solid #e1e8ed;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .contact-form h3 {
@@ -724,18 +731,60 @@ body {
 .contact-form textarea {
     min-height: 120px;
     resize: vertical;
+    border: 2px solid #e1e8ed;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    background: #f7fafc;
+    color: #2c3e50;
+}
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #fff;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
+    border: 2px solid #e1e8ed;
+    border-radius: 7px;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    background: #f7fafc;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #fff;
 }
 
 .submit-btn {
     width: 100%;
-    background: #3498db;
-    color: white;
+    background: linear-gradient(90deg, #3498db 60%, #2c3e50 100%);
+    color: #fff;
     border: none;
-    padding: 1rem;
-    border-radius: 5px;
-    font-weight: 600;
+    padding: 1.1rem;
+    border-radius: 7px;
+    font-weight: 700;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    transition: background 0.3s, box-shadow 0.3s;
+    margin-top: 0.5rem;
+}
+.submit-btn:hover {
+    background: linear-gradient(90deg, #2980b9 60%, #34495e 100%);
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.13);
 }
 
 .submit-btn:hover {
