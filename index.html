@@ -53,75 +53,79 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section id="home" class="hero">
         <div class="hero-background">
-            <img src="telegraph-motel.jpg" alt="Telegraph Motel Room" class="hero-image">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/MLplXYtoMdXPWXRA.jpg" alt="Telegraph Motel Exterior" class="hero-bg-img">
             <div class="hero-overlay"></div>
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-left">
-                    <div class="hero-text">
-                        <h1 class="hero-title">Modern Comfort<br>Meets Classic Style</h1>
-                        <p class="hero-subtitle">Experience our newly renovated rooms with contemporary design, premium amenities, and exceptional service in the heart of Detroit.</p>
-                        <div class="hero-buttons">
-                            <button class="btn btn-primary">Book Your Stay</button>
-                            <button class="btn btn-secondary">Take a Tour</button>
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Modern Comfort<br>
+                        <span class="highlight">Meets Classic Style</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Experience our newly renovated rooms with contemporary design, premium amenities, 
+                        and exceptional service in the heart of Detroit.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Book Your Stay</button>
+                        <button class="btn btn-secondary">Take a Tour</button>
+                    </div>
+                    <div class="hero-info">
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>313-666-6888</span>
                         </div>
-                        <div class="hero-info">
-                            <div class="info-item">
-                                <i class="fas fa-phone"></i>
-                                <span>313-666-6888</span>
-                            </div>
-                            <div class="info-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Detroit, Michigan</span>
-                            </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Detroit, Michigan</span>
                         </div>
                     </div>
                 </div>
-                <div class="hero-right">
-                    <div class="booking-card">
-                        <h3>Book Your Stay</h3>
-                        <form class="booking-form">
+                <div class="booking-card">
+                    <h3>Book Your Stay</h3>
+                    <form class="booking-form">
+                        <div class="form-row">
                             <div class="form-group">
-                                <label>Check In</label>
-                                <input type="date" class="form-input" required>
+                                <label for="checkin">Check In</label>
+                                <input type="date" id="checkin" name="checkin" required>
                             </div>
                             <div class="form-group">
-                                <label>Check Out</label>
-                                <input type="date" class="form-input" required>
+                                <label for="checkout">Check Out</label>
+                                <input type="date" id="checkout" name="checkout" required>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Adults</label>
-                                    <select class="form-input">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Kids</label>
-                                    <select class="form-input">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adults">Adults</label>
+                                <select id="adults" name="adults">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
                             </div>
-                            <button type="submit" class="search-btn">Search</button>
-                        </form>
-                    </div>
+                            <div class="form-group">
+                                <label for="kids">Kids</label>
+                                <select id="kids" name="kids">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="search-btn">Search</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="explore">
+    <section id="explore" class="about">
         <div class="container">
             <div class="section-header">
                 <h2>Discover Telegraph Motel</h2>
@@ -130,46 +134,51 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>A New Standard of Hospitality</h3>
-                    <p>Telegraph Motel has been completely transformed with a contemporary design that honors our classic heritage. Each room features modern amenities, stylish furnishings, and thoughtful details that create an unforgettable experience.</p>
-                    <p>From our signature Playboy-themed suites to our elegant standard rooms, every space is designed with your comfort and satisfaction in mind.</p>
-                    <div class="features">
-                        <div class="feature">
+                    <p>
+                        Telegraph Motel has been completely transformed with a contemporary design that honors our classic heritage. 
+                        Each room features modern amenities, stylish furnishings, and thoughtful details that create an unforgettable experience.
+                    </p>
+                    <p>
+                        From our signature Playboy-themed suites to our elegant standard rooms, every space is designed with your comfort and satisfaction in mind.
+                    </p>
+                    <div class="features-grid">
+                        <div class="feature-item">
                             <i class="fas fa-wifi"></i>
                             <span>Free High-Speed WiFi</span>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-car"></i>
+                        <div class="feature-item">
+                            <i class="fas fa-parking"></i>
                             <span>Free Parking</span>
                         </div>
-                        <div class="feature">
+                        <div class="feature-item">
                             <i class="fas fa-tv"></i>
                             <span>Smart TV in Every Room</span>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-snowflake"></i>
+                        <div class="feature-item">
+                            <i class="fas fa-thermometer-half"></i>
                             <span>Climate Control</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="newly-opened-motel-in.jpg" alt="Modern Motel Room" class="about-img">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/UnAQSpkXyyIdhzwT.jpg" alt="Telegraph Motel Interior" class="animate-on-scroll">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Rooms Section -->
-    <section class="rooms" id="rooms">
+    <section id="rooms" class="rooms">
         <div class="container">
             <div class="section-header">
                 <h2>Our Rooms</h2>
                 <p>Choose from our selection of beautifully designed accommodations</p>
             </div>
             <div class="rooms-grid">
-                <div class="room-card">
+                <div class="room-card animate-on-scroll">
+                    <div class="room-badge popular">Popular</div>
                     <div class="room-image">
-                        <img src="telegraph-motel.jpg" alt="Signature Suite" class="room-img">
-                        <div class="room-badge">Popular</div>
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/UnAQSpkXyyIdhzwT.jpg" alt="Signature Suite">
                     </div>
                     <div class="room-content">
                         <h3>Signature Suite</h3>
@@ -186,10 +195,11 @@
                         <button class="room-btn">Book Now</button>
                     </div>
                 </div>
-                <div class="room-card">
+
+                <div class="room-card animate-on-scroll">
+                    <div class="room-badge luxury">Luxury</div>
                     <div class="room-image">
-                        <img src="telegraph-motel-1.jpg" alt="Executive Room" class="room-img">
-                        <div class="room-badge">Luxury</div>
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/uTelKzOWmQpYRSEx.jpg" alt="Executive Room">
                     </div>
                     <div class="room-content">
                         <h3>Executive Room</h3>
@@ -206,10 +216,11 @@
                         <button class="room-btn">Book Now</button>
                     </div>
                 </div>
-                <div class="room-card">
+
+                <div class="room-card animate-on-scroll">
+                    <div class="room-badge value">Value</div>
                     <div class="room-image">
-                        <img src="newly-opened-motel-in.jpg" alt="Standard Room" class="room-img">
-                        <div class="room-badge">Value</div>
+                        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/lYUCQRgwTGondDgP.jpg" alt="Standard Room">
                     </div>
                     <div class="room-content">
                         <h3>Standard Room</h3>
@@ -231,50 +242,50 @@
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery" id="gallery">
+    <section id="gallery" class="gallery">
         <div class="container">
             <div class="section-header">
                 <h2>Gallery</h2>
                 <p>Take a visual tour of our beautiful property</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item large">
-                    <img src="l-1.jpg" alt="Telegraph Motel Exterior" class="gallery-img">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/MLplXYtoMdXPWXRA.jpg" alt="Telegraph Motel Exterior" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4>Exterior View</h4>
                         <p>Modern facade with classic motel charm</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="telegraph-motel.jpg" alt="Signature Suite Interior" class="gallery-img">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/UnAQSpkXyyIdhzwT.jpg" alt="Signature Suite Interior" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4>Signature Suite</h4>
                         <p>Bold design with artistic flair</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="telegraph-motel-1.jpg" alt="Modern Bathroom" class="gallery-img">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/uTelKzOWmQpYRSEx.jpg" alt="Modern Bathroom" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4>Designer Bathroom</h4>
                         <p>Geometric patterns and premium finishes</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="newly-opened-motel-in.jpg" alt="Standard Room" class="gallery-img">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/lYUCQRgwTGondDgP.jpg" alt="Standard Room" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4>Standard Room</h4>
                         <p>Comfortable and contemporary</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="l-2.jpg" alt="Night View" class="gallery-img">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/RwZpqwYYCmUjUpNv.jpg" alt="Evening Exterior" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4>Evening Ambiance</h4>
                         <p>Welcoming atmosphere after dark</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="l.jpg" alt="Motel Sign" class="gallery-img">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663124377176/MRbEFtkIbMzbpuBX.jpg" alt="Telegraph Motel Sign" class="gallery-img">
                     <div class="gallery-overlay">
                         <h4>Classic Sign</h4>
                         <p>Iconic Telegraph Motel branding</p>
@@ -285,49 +296,49 @@
     </section>
 
     <!-- Amenities Section -->
-    <section class="amenities" id="amenities">
+    <section id="amenities" class="amenities">
         <div class="container">
             <div class="section-header">
                 <h2>Amenities</h2>
                 <p>Everything you need for a comfortable stay</p>
             </div>
             <div class="amenities-grid">
-                <div class="amenity-card">
+                <div class="amenity-card animate-on-scroll">
                     <div class="amenity-icon">
                         <i class="fas fa-wifi"></i>
                     </div>
                     <h4>Free WiFi</h4>
                     <p>High-speed internet access throughout the property</p>
                 </div>
-                <div class="amenity-card">
+                <div class="amenity-card animate-on-scroll">
                     <div class="amenity-icon">
-                        <i class="fas fa-car"></i>
+                        <i class="fas fa-parking"></i>
                     </div>
                     <h4>Free Parking</h4>
                     <p>Convenient on-site parking for all guests</p>
                 </div>
-                <div class="amenity-card">
+                <div class="amenity-card animate-on-scroll">
                     <div class="amenity-icon">
                         <i class="fas fa-tv"></i>
                     </div>
                     <h4>Smart TV</h4>
                     <p>Large screen TVs with streaming capabilities</p>
                 </div>
-                <div class="amenity-card">
+                <div class="amenity-card animate-on-scroll">
                     <div class="amenity-icon">
-                        <i class="fas fa-snowflake"></i>
+                        <i class="fas fa-thermometer-half"></i>
                     </div>
                     <h4>Climate Control</h4>
                     <p>Individual temperature control in every room</p>
                 </div>
-                <div class="amenity-card">
+                <div class="amenity-card animate-on-scroll">
                     <div class="amenity-icon">
                         <i class="fas fa-coffee"></i>
                     </div>
                     <h4>Coffee Station</h4>
                     <p>Fresh coffee and tea available 24/7</p>
                 </div>
-                <div class="amenity-card">
+                <div class="amenity-card animate-on-scroll">
                     <div class="amenity-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
@@ -339,53 +350,54 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section id="contact" class="contact">
         <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Ready to experience the new Telegraph Motel? Contact us today to make your reservation.</p>
+            </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2>Get in Touch</h2>
-                    <p>Ready to experience the new Telegraph Motel? Contact us today to make your reservation.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
                             <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>313-666-6888</p>
-                            </div>
                         </div>
-                        <div class="contact-item">
+                        <h4>Phone</h4>
+                        <p>313-666-6888</p>
+                    </div>
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@telegraphmotel.com</p>
-                            </div>
                         </div>
-                        <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>info@telegraphmotel.com</p>
+                    </div>
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Address</h4>
-                                <p>Telegraph Road<br>Detroit, Michigan</p>
-                            </div>
                         </div>
-                        <div class="contact-item">
+                        <h4>Address</h4>
+                        <p>Telegraph Road<br>Detroit, Michigan</p>
+                    </div>
+                    <div class="contact-item animate-on-scroll">
+                        <div class="contact-icon">
                             <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Check-in</h4>
-                                <p>3:00 PM - 11:00 PM</p>
-                            </div>
                         </div>
+                        <h4>Check-in</h4>
+                        <p>3:00 PM - 11:00 PM</p>
                     </div>
                 </div>
-                <div class="contact-form-wrapper">
+                <div class="contact-form-wrapper animate-on-scroll">
                     <form class="contact-form">
-                        <h3>Send us a Message</h3>
                         <div class="form-row">
-                            <input type="text" placeholder="First Name" class="form-input" required>
-                            <input type="text" placeholder="Last Name" class="form-input" required>
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
                         </div>
-                        <input type="email" placeholder="Email Address" class="form-input" required>
-                        <input type="tel" placeholder="Phone Number" class="form-input">
-                        <textarea placeholder="Your Message" class="form-textarea" rows="5" required></textarea>
+                        <div class="form-row">
+                            <input type="email" placeholder="Email Address" required>
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <textarea placeholder="How can we help you?" rows="5" required></textarea>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
                 </div>
@@ -400,33 +412,25 @@
                 <div class="footer-section">
                     <div class="footer-logo">
                         <h3>TELEGRAPH<br><span>MOTEL</span></h3>
-                    </div>
-                    <p>Modern comfort meets classic style in the heart of Detroit.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-yelp"></i></a>
+                        <p>Modern comfort meets classic style</p>
                     </div>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#rooms">Rooms</a></li>
                         <li><a href="#amenities">Amenities</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Online Booking</a></li>
-                        <li><a href="#">Room Service</a></li>
-                        <li><a href="#">Concierge</a></li>
-                        <li><a href="#">Special Events</a></li>
-                        <li><a href="#">Group Bookings</a></li>
+                    <ul>
+                        <li><a href="#contact">Online Booking</a></li>
+                        <li><a href="#contact">Room Service</a></li>
+                        <li><a href="#contact">Concierge</a></li>
+                        <li><a href="#contact">Parking</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -446,15 +450,15 @@
 
     <!-- Chat Widget -->
     <div class="chat-widget">
-        <div class="chat-button" id="chat-button">
+        <button class="chat-button" id="chat-button">
             <i class="fas fa-comments"></i>
-        </div>
+        </button>
         <div class="chat-popup" id="chat-popup">
             <div class="chat-header">
                 <h4>Let's Chat!</h4>
                 <button class="chat-close" id="chat-close">&times;</button>
             </div>
-            <div class="chat-body">
+            <div class="chat-content">
                 <p>Hi! How can we help you today?</p>
                 <div class="chat-options">
                     <button class="chat-option">Check Availability</button>
