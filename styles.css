@@ -1,14 +1,8 @@
-/* Telegraph Motel Website Styles */
-
 /* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
@@ -21,10 +15,10 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
-/* Header Styles */
+/* Header */
 .header {
     position: fixed;
     top: 0;
@@ -39,8 +33,8 @@ body {
 
 .nav-wrapper {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo h1 {
@@ -52,7 +46,7 @@ body {
 
 .logo span {
     color: #3498db;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .nav-list {
@@ -65,29 +59,16 @@ body {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
     position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: #3498db;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #3498db;
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
+    background: rgba(52, 152, 219, 0.1);
 }
 
 .header-actions {
@@ -195,10 +176,11 @@ body {
     z-index: -2;
 }
 
-.hero-image {
+.hero-bg-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .hero-overlay {
@@ -235,7 +217,7 @@ body {
     line-height: 1.6;
 }
 
-.hero-buttons {
+.hero-actions {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
@@ -304,19 +286,26 @@ body {
     font-size: 1.5rem;
 }
 
-.form-group {
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-bottom: 1rem;
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
 .form-group label {
-    display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
     color: #555;
 }
 
-.form-input {
-    width: 100%;
+.form-group input,
+.form-group select {
     padding: 0.75rem;
     border: 2px solid #e1e8ed;
     border-radius: 5px;
@@ -324,15 +313,10 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.form-input:focus {
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #3498db;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
 }
 
 .search-btn {
@@ -345,37 +329,15 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-top: 1rem;
 }
 
 .search-btn:hover {
     background: #34495e;
 }
 
-/* Section Styles */
-section {
-    padding: 5rem 0;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 1rem;
-}
-
-.section-header p {
-    font-size: 1.2rem;
-    color: #666;
-}
-
 /* About Section */
 .about {
+    padding: 6rem 0;
     background: #f8f9fa;
 }
 
@@ -386,44 +348,85 @@ section {
     align-items: center;
 }
 
-.about-text h3 {
-    font-size: 2rem;
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
     color: #2c3e50;
-    margin-bottom: 1.5rem;
+}
+
+.about-text .subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.about-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #34495e;
 }
 
 .about-text p {
     margin-bottom: 1.5rem;
-    color: #666;
+    color: #555;
     line-height: 1.8;
 }
 
-.features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+.features-list {
+    list-style: none;
     margin-top: 2rem;
 }
 
-.feature {
+.features-list li {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
     color: #555;
 }
 
-.feature i {
+.features-list i {
     color: #3498db;
     font-size: 1.2rem;
 }
 
-.about-img {
-    width: 100%;
-    border-radius: 10px;
+.about-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+.about-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
 /* Rooms Section */
+.rooms {
+    padding: 6rem 0;
+    background: white;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .rooms-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -432,43 +435,58 @@ section {
 
 .room-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
 }
 
 .room-card:hover {
     transform: translateY(-10px);
-}
-
-.room-image {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
-}
-
-.room-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.room-card:hover .room-img {
-    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .room-badge {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: #3498db;
-    color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 600;
+    z-index: 10;
+}
+
+.badge-popular {
+    background: #e74c3c;
+    color: white;
+}
+
+.badge-luxury {
+    background: #f39c12;
+    color: white;
+}
+
+.badge-value {
+    background: #27ae60;
+    color: white;
+}
+
+.room-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover .room-image img {
+    transform: scale(1.05);
 }
 
 .room-content {
@@ -477,58 +495,54 @@ section {
 
 .room-content h3 {
     font-size: 1.5rem;
-    color: #2c3e50;
     margin-bottom: 1rem;
+    color: #2c3e50;
 }
 
 .room-content p {
-    color: #666;
+    color: #555;
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
 .room-features {
     display: flex;
-    flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
-.room-features span {
+.room-feature {
+    font-size: 0.875rem;
+    color: #7f8c8d;
+    background: #f8f9fa;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+}
+
+.room-footer {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.5rem;
-    color: #555;
-    font-size: 0.9rem;
-}
-
-.room-features i {
-    color: #3498db;
 }
 
 .room-price {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.price {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #2c3e50;
 }
 
-.period {
-    color: #666;
+.room-price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #7f8c8d;
 }
 
 .room-btn {
-    width: 100%;
     background: #3498db;
     color: white;
     border: none;
-    padding: 1rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
@@ -541,70 +555,66 @@ section {
 
 /* Gallery Section */
 .gallery {
+    padding: 6rem 0;
     background: #f8f9fa;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .gallery-item {
     position: relative;
-    height: 250px;
-    border-radius: 10px;
+    border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
-}
-
-.gallery-item.large {
-    grid-column: span 2;
-    height: 400px;
-}
-
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .gallery-overlay {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     color: white;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
 .gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-item:hover .gallery-img {
-    transform: scale(1.1);
+    transform: translateY(0);
 }
 
 .gallery-overlay h4 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
 }
 
 .gallery-overlay p {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     opacity: 0.9;
 }
 
 /* Amenities Section */
+.amenities {
+    padding: 6rem 0;
+    background: white;
+}
+
 .amenities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -614,47 +624,44 @@ section {
 .amenity-card {
     text-align: center;
     padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    background: #f8f9fa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .amenity-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .amenity-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    width: 60px;
+    height: 60px;
+    background: #3498db;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-}
-
-.amenity-icon i {
-    font-size: 2rem;
+    margin: 0 auto 1rem;
     color: white;
+    font-size: 1.5rem;
 }
 
 .amenity-card h4 {
-    font-size: 1.3rem;
-    color: #2c3e50;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
+    color: #2c3e50;
 }
 
 .amenity-card p {
-    color: #666;
+    color: #555;
     line-height: 1.6;
 }
 
 /* Contact Section */
 .contact {
-    background: #2c3e50;
-    color: white;
+    padding: 6rem 0;
+    background: #f8f9fa;
 }
 
 .contact-content {
@@ -663,65 +670,60 @@ section {
     gap: 4rem;
 }
 
-.contact-info h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.contact-info p {
-    font-size: 1.2rem;
+.contact-info h3 {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.contact-details {
-    display: grid;
-    gap: 1.5rem;
+    color: #2c3e50;
 }
 
 .contact-item {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.contact-item i {
-    color: #3498db;
-    font-size: 1.5rem;
-    margin-top: 0.25rem;
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.25rem;
 }
 
-.contact-item h4 {
-    margin-bottom: 0.5rem;
-    color: #3498db;
+.contact-details h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: #2c3e50;
 }
 
-.contact-form-wrapper {
+.contact-details p {
+    color: #555;
+}
+
+.contact-form {
     background: white;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form h3 {
+    margin-bottom: 2rem;
     color: #2c3e50;
+}
+
+.contact-form .form-group {
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
 }
 
-.form-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e1e8ed;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: inherit;
+.contact-form textarea {
+    min-height: 120px;
     resize: vertical;
-    transition: border-color 0.3s ease;
-}
-
-.form-textarea:focus {
-    outline: none;
-    border-color: #3498db;
 }
 
 .submit-btn {
@@ -734,7 +736,6 @@ section {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-top: 1rem;
 }
 
 .submit-btn:hover {
@@ -743,7 +744,7 @@ section {
 
 /* Footer */
 .footer {
-    background: #1a252f;
+    background: #2c3e50;
     color: white;
     padding: 3rem 0 1rem;
 }
@@ -755,83 +756,27 @@ section {
     margin-bottom: 2rem;
 }
 
-.footer-logo h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.footer-logo span {
-    color: #3498db;
-}
-
-.footer-section p {
-    margin-bottom: 1.5rem;
-    opacity: 0.8;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    width: 40px;
-    height: 40px;
-    background: #3498db;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.social-link:hover {
-    background: #2980b9;
-}
-
 .footer-section h4 {
     margin-bottom: 1rem;
     color: #3498db;
 }
 
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.8);
+.footer-section p,
+.footer-section a {
+    color: #bdc3c7;
     text-decoration: none;
-    transition: color 0.3s ease;
+    line-height: 1.8;
 }
 
-.footer-links a:hover {
+.footer-section a:hover {
     color: #3498db;
-}
-
-.footer-contact p {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.footer-contact i {
-    color: #3498db;
-    width: 20px;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid #34495e;
-    opacity: 0.8;
+    color: #95a5a6;
 }
 
 /* Chat Widget */
@@ -846,23 +791,18 @@ section {
     width: 60px;
     height: 60px;
     background: #3498db;
+    border: none;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: white;
+    font-size: 1.5rem;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
     transition: all 0.3s ease;
 }
 
 .chat-button:hover {
-    transform: scale(1.1);
     background: #2980b9;
-}
-
-.chat-button i {
-    font-size: 1.5rem;
+    transform: scale(1.1);
 }
 
 .chat-popup {
@@ -871,7 +811,7 @@ section {
     right: 0;
     width: 300px;
     background: white;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
@@ -889,7 +829,7 @@ section {
     background: #3498db;
     color: white;
     padding: 1rem;
-    border-radius: 10px 10px 0 0;
+    border-radius: 15px 15px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -899,17 +839,17 @@ section {
     background: none;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     cursor: pointer;
 }
 
 .chat-body {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
-.chat-body p {
+.chat-message {
     margin-bottom: 1rem;
-    color: #666;
+    color: #555;
 }
 
 .chat-options {
@@ -920,9 +860,9 @@ section {
 
 .chat-option {
     background: #f8f9fa;
-    border: 1px solid #e1e8ed;
+    border: 1px solid #e9ecef;
     padding: 0.75rem;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
@@ -934,9 +874,21 @@ section {
     border-color: #3498db;
 }
 
+/* Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav {
+    .nav-list {
         display: none;
     }
     
@@ -954,98 +906,56 @@ section {
         font-size: 2.5rem;
     }
     
-    .hero-buttons {
-        justify-content: center;
-    }
-    
-    .hero-info {
-        justify-content: center;
-    }
-    
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .features {
-        grid-template-columns: 1fr;
-    }
-    
+    .about-content,
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
     
-    .gallery-item.large {
-        grid-column: span 1;
-        height: 250px;
-    }
-    
-    .footer-content {
+    .form-row {
         grid-template-columns: 1fr;
-        text-align: center;
     }
     
-    .chat-widget {
-        bottom: 1rem;
-        right: 1rem;
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
     }
     
-    .chat-popup {
-        width: 280px;
+    .hero-info {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .rooms-grid,
+    .gallery-grid,
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
     .hero-title {
         font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
     }
     
     .section-header h2 {
         font-size: 2rem;
     }
     
-    .rooms-grid {
-        grid-template-columns: 1fr;
+    .booking-card {
+        padding: 1.5rem;
     }
     
-    .amenities-grid {
-        grid-template-columns: 1fr;
+    .chat-popup {
+        width: 280px;
+        right: -10px;
     }
-    
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-/* Scroll Animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
