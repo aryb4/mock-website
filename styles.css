@@ -1008,3 +1008,99 @@ body {
         right: -10px;
     }
 }
+.form-confirmation {
+    margin-top: 1rem;
+    background: #e8f7ff;
+    color: #2c3e50;
+    padding: 0.8rem 1rem;
+    border-left: 4px solid #3498db;
+    border-radius: 5px;
+    font-weight: 500;
+    opacity: 0;
+}
+
+/* Tablets and smaller */
+@media (max-width: 768px) {
+    /* Navigation */
+    .nav-list { display: none; }
+    .mobile-menu-btn { display: flex; }
+
+    /* Hero section stacks vertically */
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+    .hero-title { font-size: 2.4rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    /* Forms and sections stack */
+    .form-row,
+    .about-content,
+    .contact-content,
+    .rooms-grid,
+    .gallery-grid,
+    .amenities-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container { padding: 0 1rem; }
+
+    /* Adjust chat placement */
+    .chat-widget {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    /* Make hero shorter on tablets */
+    .hero {
+        height: auto;
+        padding: 4rem 0;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .hero-title { font-size: 1.9rem; }
+    .hero-subtitle { font-size: 1rem; line-height: 1.6; }
+    .section-header h2 { font-size: 1.6rem; }
+
+    /* Tap-friendly controls */
+    button, input, select, textarea {
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Smaller booking card padding */
+    .booking-card { padding: 1.25rem; }
+
+    /* Simpler animations on low-end devices */
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none;
+    }
+
+    /* Fit chat popup */
+    .chat-popup {
+        width: 260px;
+        right: -10px;
+    }
+
+    /* Prevent text overflow */
+    .room-card,
+    .gallery-item {
+        word-wrap: break-word;
+    }
+
+    /* Ensure images never overflow horizontally */
+    img, video {
+        max-width: 100%;
+        height: auto;
+    }
+}

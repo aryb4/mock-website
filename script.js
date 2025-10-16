@@ -1,8 +1,7 @@
-// Telegraph Motel Website JavaScript - Simplified Version
+// Telegraph Motel Website JavaScript - Email Submission + Confirmation
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Telegraph Motel website loaded successfully');
-    
-    // Initialize functionality safely
+
     try {
         initMobileMenu();
         initSmoothScrolling();
@@ -14,38 +13,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Mobile Menu Functionality
+// ----- Mobile Menu -----
 function initMobileMenu() {
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    if (!mobileMenuBtn || !mobileMenu) return;
-    
-    mobileMenuBtn.addEventListener('click', function(e) {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', function(e) {
         e.preventDefault();
-        mobileMenu.classList.toggle('active');
-        
-        // Animate hamburger menu
-        const spans = mobileMenuBtn.querySelectorAll('span');
-        spans.forEach((span, index) => {
-            if (mobileMenu.classList.contains('active')) {
-                if (index === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
-                if (index === 1) span.style.opacity = '0';
-                if (index === 2) span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        menu.classList.toggle('active');
+        const spans = btn.querySelectorAll('span');
+        spans.forEach((span, i) => {
+            if (menu.classList.contains('active')) {
+                if (i === 0) span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                if (i === 1) span.style.opacity = '0';
+                if (i === 2) span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
             } else {
                 span.style.transform = 'none';
                 span.style.opacity = '1';
             }
         });
     });
-    
-    // Close menu when clicking on links
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileMenu.classList.remove('active');
-            const spans = mobileMenuBtn.querySelectorAll('span');
-            spans.forEach(span => {
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+            btn.querySelectorAll('span').forEach(span => {
                 span.style.transform = 'none';
                 span.style.opacity = '1';
             });
@@ -53,160 +46,170 @@ function initMobileMenu() {
     });
 }
 
-// Smooth Scrolling for Navigation Links
+// ----- Smooth Scrolling -----
 function initSmoothScrolling() {
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    
-    navLinks.forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                const offset = target.offsetTop - headerHeight;
+                window.scrollTo({ top: offset, behavior: 'smooth' });
             }
         });
     });
 }
 
-// Chat Widget Functionality
+// ----- Chat Widget -----
 function initChatWidget() {
     const chatButton = document.getElementById('chat-button');
     const chatPopup = document.getElementById('chat-popup');
     const chatClose = document.getElementById('chat-close');
-    
     if (!chatButton || !chatPopup || !chatClose) return;
-    
-    chatButton.addEventListener('click', function() {
-        chatPopup.classList.toggle('active');
-    });
-    
-    chatClose.addEventListener('click', function() {
-        chatPopup.classList.remove('active');
-    });
-    
-    // Chat options
-    const chatOptions = document.querySelectorAll('.chat-option');
-    chatOptions.forEach(option => {
+
+    chatButton.addEventListener('click', () => chatPopup.classList.toggle('active'));
+    chatClose.addEventListener('click', () => chatPopup.classList.remove('active'));
+
+    document.querySelectorAll('.chat-option').forEach(option => {
         option.addEventListener('click', function() {
             const message = this.textContent;
-            alert('Thank you for your interest in ' + message + '. Please call us at 313-666-6888 for immediate assistance!');
+            showTemporaryMessage(`✅ Thank you for your interest in "${message}". Please call us at 313-666-6888 for immediate assistance!`, chatPopup);
         });
     });
 }
 
-// Scroll Animations
+// ----- Scroll Animations -----
 function initScrollAnimations() {
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    
-    if (!animateElements.length) return;
-    
-    const observer = new IntersectionObserver((entries) => {
+    const animateEls = document.querySelectorAll('.animate-on-scroll');
+    if (!animateEls.length) return;
+
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
-    animateElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    animateEls.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
     });
 }
 
-// Form Handling
+// ----- Forms (Email + Confirmation) -----
 function initFormHandling() {
-    // Booking Form
     const bookingForm = document.querySelector('.booking-form');
+    const contactForm = document.querySelector('.contact-form');
+
+    // --- Booking Form ---
     if (bookingForm) {
         bookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your booking request! Please call 313-666-6888 to confirm your reservation.');
+
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const adults = document.getElementById('adults').value;
+            const kids = document.getElementById('kids').value;
+
+            const subject = `Booking Request from Telegraph Motel Website`;
+            const body = `Check-in: ${checkin}%0D%0ACheck-out: ${checkout}%0D%0AAdults: ${adults}%0D%0AKids: ${kids}`;
+            window.location.href = `mailto:info@telegraphmotel.com?subject=${subject}&body=${body}`;
+
+            showFormConfirmation(bookingForm, '🏨 Thank you! Your booking request has been received. Please call 313-666-6888 to confirm your reservation.');
+            bookingForm.reset();
         });
     }
-    
-    // Contact Form
-    const contactForm = document.querySelector('.contact-form');
+
+    // --- Contact Form ---
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will contact you within 24 hours.');
+
+            const inputs = contactForm.querySelectorAll('input, textarea');
+            const name = inputs[0].value + " " + inputs[1].value;
+            const email = inputs[2].value;
+            const phone = inputs[3].value;
+            const message = inputs[4].value;
+
+            const subject = `New Message from ${name}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AMessage: ${message}`;
+            window.location.href = `mailto:info@telegraphmotel.com?subject=${subject}&body=${body}`;
+
+            showFormConfirmation(contactForm, '✅ Thank you! Your message has been sent. We’ll contact you within 24 hours.');
+            contactForm.reset();
         });
     }
-    
-    // Room booking buttons
-    const roomButtons = document.querySelectorAll('.room-btn');
-    roomButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            alert('Please call 313-666-6888 to book this room or use our online booking form above.');
-        });
-    });
-    
-    // Header book buttons
-    const bookButtons = document.querySelectorAll('.book-btn, .btn-primary, .mobile-book-btn');
-    bookButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const bookingSection = document.querySelector('.booking-card');
-            if (bookingSection) {
-                bookingSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
+
+    // --- Scroll buttons ---
+    document.querySelectorAll('.book-btn, .btn-primary, .mobile-book-btn, .room-btn')
+        .forEach(btn => btn.addEventListener('click', () => {
+            document.querySelector('.booking-card').scrollIntoView({ behavior: 'smooth' });
+        }));
 }
 
-// Active Navigation Highlighting
+// ----- Helpers -----
+function showFormConfirmation(form, message) {
+    let existing = form.querySelector('.form-confirmation');
+    if (existing) existing.remove();
+
+    const msg = document.createElement('p');
+    msg.classList.add('form-confirmation');
+    msg.textContent = message;
+    form.appendChild(msg);
+
+    msg.style.opacity = '0';
+    msg.style.transition = 'opacity 0.5s ease';
+    setTimeout(() => (msg.style.opacity = '1'), 50);
+    setTimeout(() => {
+        msg.style.opacity = '0';
+        setTimeout(() => msg.remove(), 500);
+    }, 4000);
+}
+
+function showTemporaryMessage(text, container) {
+    const msg = document.createElement('div');
+    msg.textContent = text;
+    msg.style.padding = '10px';
+    msg.style.background = '#ecf8ff';
+    msg.style.borderRadius = '8px';
+    msg.style.marginTop = '10px';
+    msg.style.fontSize = '0.9rem';
+    msg.style.color = '#2c3e50';
+    container.appendChild(msg);
+    setTimeout(() => msg.remove(), 3000);
+}
+
+// ----- Active Nav Highlight -----
 window.addEventListener('scroll', function() {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
+    const links = document.querySelectorAll('.nav-link');
     let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
+    sections.forEach(s => {
+        if (window.pageYOffset >= s.offsetTop - 200) current = s.id;
     });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-        }
+    links.forEach(l => {
+        l.classList.remove('active');
+        if (l.getAttribute('href') === '#' + current) l.classList.add('active');
     });
 });
 
-// Set minimum date for booking form
+// ----- Booking Date Limits -----
 document.addEventListener('DOMContentLoaded', function() {
-    const checkinInput = document.getElementById('checkin');
-    const checkoutInput = document.getElementById('checkout');
-    
-    if (checkinInput && checkoutInput) {
+    const checkin = document.getElementById('checkin');
+    const checkout = document.getElementById('checkout');
+    if (checkin && checkout) {
         const today = new Date().toISOString().split('T')[0];
-        checkinInput.setAttribute('min', today);
-        checkoutInput.setAttribute('min', today);
-        
-        checkinInput.addEventListener('change', function() {
-            const checkinDate = new Date(this.value);
-            const nextDay = new Date(checkinDate);
-            nextDay.setDate(checkinDate.getDate() + 1);
-            checkoutInput.setAttribute('min', nextDay.toISOString().split('T')[0]);
+        checkin.min = today;
+        checkout.min = today;
+        checkin.addEventListener('change', function() {
+            const nextDay = new Date(this.value);
+            nextDay.setDate(nextDay.getDate() + 1);
+            checkout.min = nextDay.toISOString().split('T')[0];
         });
     }
 });
